@@ -21,7 +21,7 @@ type.defineValues (node, callback) ->
 
   _node: node
 
-  _callback: callback
+  _callback: callback or emptyFunction
 
   _sensor: null
 
