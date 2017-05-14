@@ -1,2 +1,2 @@
 
-# ResizeSensor v1.0.0 
+# ResizeSensor v1.0.1 
