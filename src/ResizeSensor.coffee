@@ -4,6 +4,12 @@ Type = require "Type"
 
 type = Type "ResizeSensor"
 
+type.defineGetters
+
+  width: -> @_width
+
+  height: -> @_height
+
 type.defineMethods
 
   detach: ->
@@ -25,9 +31,9 @@ type.defineValues (node, callback) ->
 
   _sensor: null
 
-  _lastWidth: null
+  _width: null
 
-  _lastHeight: null
+  _height: null
 
   _updating: no
 
@@ -51,12 +57,12 @@ type.defineBoundMethods
       width = node.offsetWidth
       height = node.offsetHeight
 
-      if width isnt @_lastWidth
-        @_lastWidth = width
+      if width isnt @_width
+        @_width = width
         changed = yes
 
-      if height isnt @_lastHeight
-        @_lastHeight = height
+      if height isnt @_height
+        @_height = height
         changed = yes
 
       if changed
@@ -78,8 +84,8 @@ type.defineMethods
     if "static" is getComputedStyle @_node, "position"
       @_node.style.position = "relative"
 
-    @_lastWidth = @_node.offsetWidth
-    @_lastHeight = @_node.offsetHeight
+    @_width = @_node.offsetWidth
+    @_height = @_node.offsetHeight
 
     @_reset()
 
